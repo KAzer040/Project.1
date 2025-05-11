@@ -958,82 +958,46 @@ function initHelp() {
     });
 }
 
-// 初始化轮播图功能
-function initCarousel() {
+
+document.addEventListener('DOMContentLoaded', () => {
     const hero = document.getElementById('hero');          
     const slider = document.getElementById('heroSlider');
     const slides = slider.querySelectorAll('.slide');
     const total = slides.length;
     let index = 0;
     let timer;
+    const carousel = document.getElementById("myCarousel");  
 
     function goToSlide(i) {
-        const offset = (i * 100) / total;
-        slider.style.transform = `translateX(-${offset}%)`;
-        updateDots(i);
+      const offset = (i * 100) / total;
+      slider.style.transform = `translateX(-${offset}%)`;
+      updateDots(i);
     }
-
+  
     function startAutoPlay() {
-        timer = setInterval(() => {
-            index = (index + 1) % total;
-            goToSlide(index);
-        }, 5000);
-    }
-
-    function stopAutoPlay() {
-        clearInterval(timer);
-    }
-
-    function updateDots(currentIndex) {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === currentIndex);
-        });
-    }
-
-    function createDots() {
-        const dotsContainer = document.getElementById('dotsContainer');
-        for (let i = 0; i < total; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            dot.addEventListener('click', () => {
-                index = i;
-                goToSlide(index);
-            });
-            dotsContainer.appendChild(dot);
-        }
-    }
-
-    // 添加按钮点击事件
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    prevBtn.addEventListener('click', () => {
-        index = (index - 1 + total) % total;
-        goToSlide(index);
-    });
-
-    nextBtn.addEventListener('click', () => {
+      timer = setInterval(() => {
         index = (index + 1) % total;
         goToSlide(index);
-    });
-
-    hero.addEventListener('mouseenter', stopAutoPlay);
+      }, 5000);
+    }
     hero.addEventListener('mouseleave', startAutoPlay);
 
+    // 悬停时暂停自动播放
+    carousel.addEventListener("mouseenter", function () {
+      this.carousel("pause");
+    });
+
     // 初始化
-    createDots();
     goToSlide(0);
     startAutoPlay();
-}
+  });
 
-// 在页面加载完成后初始化所有功能
+
+// 在页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', () => {
     loadRestaurants();
     setupSearch();
     setupScrollToTop();
     showLoadingAnimation();
     initReservations(); // 初始化预定功能
-    initHelp(); // 初始化帮助功能
-    initCarousel(); // 初始化轮播图功能
-});
+});   
