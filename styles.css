@@ -7,12 +7,13 @@ body {
     /* background-color: #f4f4f4; */
     background-image: url('assert/landscape-7283516.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: initial;
     background-repeat: no-repeat;
 }
 
+
 header {
-    background-color: rgba(255, 255, 255, 0.753);
+    background-color: rgba(255, 255, 255, 0.491);
     color: #000000;
     padding: 0.5rem 0;
     text-align: center;
@@ -65,7 +66,7 @@ nav ul li a {
     margin: auto;
     /* height: 470px; */
     height: 600px;
-
+    border-radius: 5px;
 }
 
 
@@ -76,8 +77,8 @@ nav ul li a {
 
 .carousel-inner {
     display: flex;
-    margin: 10px;
     width: 500%;
+    margin: 10px;
     height: 100%;
     transition: transform 1s ease-in-out;
 
@@ -209,6 +210,7 @@ nav ul li a {
 
 #contact {
     padding: 2rem;
+    background-color: #f8f9fa;
     /* border-top: 1px solid #ddd; 添加顶部边框作为分隔线 */
 }
 
@@ -1510,6 +1512,8 @@ footer {
     }
 }
 
+
+
 #FAQ{
     padding: 2rem;
     background-color: #f8f9fa;
@@ -1544,4 +1548,100 @@ footer {
 .accordion-collapse {
     background-color: #ffffff;
     border-bottom: 1px solid #e7e7e7;
+}
+
+
+/* Contact Us 组件样式 */
+/* .contact-section {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+} */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.submit-btn {
+  padding: 1rem 2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .contact-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
